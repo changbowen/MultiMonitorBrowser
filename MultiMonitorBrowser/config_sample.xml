@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config auto-run="true"
+        hide-mouse="true"
+        encryptionKey="pGMbHLi0cN2Ec9RLNLDynmSgbd7+qD8Q"
+        encryptionIV="XUmgKCVgTYDP1CTU5JcFgw==">
+  <Monitor id="0" scaling-override="1">
+    <Source>
+      <![CDATA[
+      https://www.bing.com
+      ]]>
+    </Source>
+    <EncryptedStrings>
+      <EncryptedString name="__pwd__" value="EFzvwfoOvG29KC5fb/d5sg=="/>
+    </EncryptedStrings>
+    <BasicAuth username="username" password="__pwd__"/>
+    <ScriptAfterLoad>
+      <![CDATA[
+      document.getElementById('sb_form_q').value = '__pwd__';
+      document.getElementById('sb_form_go').click();
+      ]]>
+    </ScriptAfterLoad>
+  </Monitor>
+  <!--<Monitor id="1" scaling-override="1">
+    ...
+  </Monitor>-->
+</config>
+
+<!--Example
+<config auto-run="true"                                 //Optional attribute that enables starting the program with Windows. Default is false.
+        hide-mouse="true"                               //Optional attribute that hides the mouse in the application.
+        encryptionKey="..."                             //Used in the encryptor. Leave to default value even if EncryptedStrings is not used.
+        encryptionIV="...">                             //Used in the encryptor. Leave to default value even if EncryptedStrings is not used.
+  <Monitor id="0" scaling-override="0.8">               //Monitor elements correspond to the displays visible to the OS.
+                                                        //scaling-override is optional and disables webpage scaling on high DPI settings. An value of 1.5 means 150% zooming.
+                                                        //If the attribute is not set, scaling is based on DPI settings of the monitor where the window is.
+    <Source>                                            //The address of the website to open.
+      <![CDATA[ www.google.com ]]>                      //The address needs to be wrapped in CDATA.
+    </Source>
+    <EncryptedStrings>							                    //Parts in the javascript below that will be replaced with decrypted values.
+      <EncryptedString name="__xxx__" value="xxxxxx"/>  //All instances of __xxx__ in both the script and the password field below will be replaced with decrypted value of xxxxxx.
+      <EncryptedString name="__yyy__" value="yyyyyy"/>  //You can have more entries for different credentials.
+      ...
+    </EncryptedStrings>
+    <BasicAuth username="xxx" password="__xxx__"/>      //Credentials here will be used when basic authentication is prompted.
+    <ScriptAfterLoad keep-running="true">               //Optional javascript to run after the page is loaded.
+                                                        //keep-running is optional and if set to true, the script will be executed every time the page completes loading.
+                                                        //By default the script will only run after the first load.
+      <![CDATA[
+      javascript_to_run                                 //Beware of escape sequences and test the script in Chrome in advance.
+      ]]>
+    </ScriptAfterLoad>
+  </Monitor>
+  ...
+<config>
+-->
